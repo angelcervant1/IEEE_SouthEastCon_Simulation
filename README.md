@@ -12,8 +12,6 @@ run `nvidia-smi` and check message
     sudo apy install nvidia-utils-###-server # version -> (ubuntu version)
 
 Make sure to install the nvidia utils version compatible with your host machine ubuntu release.
-In my case I used
-`sudo apt install nvidia-utils-550-server  # version 550.127.05-0ubuntu0.24.04.1`
-because I have Ubuntu 24 (Noble)
+In my case I used `sudo apt install nvidia-utils-550-server  # version 550.127.05-0ubuntu0.24.04.1` because I have Ubuntu 24 (Noble)
 
 
