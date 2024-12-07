@@ -6,9 +6,10 @@ Stage Simulator for IEEE Competition
 
 run `nvidia-smi` and check message
 
-Error handling
-Command 'nvidia-smi' not found, but can be installed with:
-sudo apy install nvidia-utils-###-server # version -> (ubuntu version)
+## Error handling
+
+    Command 'nvidia-smi' not found, but can be installed with:
+    sudo apy install nvidia-utils-###-server # version -> (ubuntu version)
 
 Make sure to install the nvidia utils version compatible with your host machine ubuntu release.
 In my case I used
