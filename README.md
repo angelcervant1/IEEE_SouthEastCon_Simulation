@@ -16,7 +16,7 @@ You may see something like this
 Make sure to install the nvidia utils version compatible with your host machine ubuntu release.
 In my case I used `sudo apt install nvidia-utils-550-server` because I have Ubuntu 24 (Noble)
 
-# Updating NVIDIA Drivers
+## Updating NVIDIA Drivers
 
 Run 
         `ubuntu-drivers devices`
