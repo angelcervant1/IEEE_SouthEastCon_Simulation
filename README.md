@@ -1,6 +1,10 @@
 # IEEE_SouthEastCon_Simulation
 Stage Simulator for IEEE Competition
 
+# Prior Requirements.
+
+  1.- Ubuntu >= 20.0
+  2.- Docker >= 27.0.0
 
 ## 1.-Verify NVIDIA Drivers.
 
