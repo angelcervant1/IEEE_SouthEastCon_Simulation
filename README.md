@@ -11,7 +11,9 @@ Stage Simulator for IEEE Competition
 
 run `nvidia-smi` and check message
 
-If output is something like this
+If output is something like this You may skip to step #2. 
+
+If any error occured, continue below.
 ```
 Sat Dec  7 15:15:09 2024       
 +-----------------------------------------------------------------------------------------+
@@ -35,9 +37,7 @@ Sat Dec  7 15:15:09 2024
 +-----------------------------------------------------------------------------------------+
 
 ```
-You may skip to step #2. 
 
-If any error occured, continue below.
 
 ## Error handling
 
