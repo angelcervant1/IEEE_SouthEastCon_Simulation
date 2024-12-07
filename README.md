@@ -30,7 +30,9 @@ Sat Dec  7 15:15:09 2024
 +-----------------------------------------------------------------------------------------+
 
 ```
-You are good to go. Continue to step #2
+You may skip to step #2. 
+
+If any error occured, continue below.
 
 ## Error handling
 
@@ -44,8 +46,8 @@ In my case I used `sudo apt install nvidia-utils-550` because I have Ubuntu 24 (
 
 ## Updating NVIDIA Drivers
 
-Run 
-        `ubuntu-drivers devices`
+Run  `ubuntu-drivers devices`
+        
 An output as below should be like
 
         == /sys/devices/pci0000:00/0000:00:01.0/0000:01:00.0 ==
