@@ -2,7 +2,7 @@
 Stage Simulator for IEEE Competition
 
 
-## 1.-Verify NVIDIA Toolkit for the container to run with no issues.
+## 1.-Verify NVIDIA Drivers.
 
 run `nvidia-smi` and check message
 
