@@ -1,1 +1,1 @@
-# Step by step guide for running the simulator
+# Step by step guide to run the simulator
