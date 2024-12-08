@@ -77,6 +77,13 @@ An output as below should be like
         driver   : nvidia-driver-470 - distro non-free
         driver   : xserver-xorg-video-nouveau - distro free builtin
 
+Upgrade apt packages
+
+```
+sudo apt update
+sudo apt upgrade
+```
+
 Add the NVIDIA Drivers repository
 ```
 sudo add-apt-repository ppa:graphics-drivers/ppa
