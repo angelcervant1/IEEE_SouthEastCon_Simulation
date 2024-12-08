@@ -1,5 +1,5 @@
-# IEEE_SouthEastCon_Simulation
-Stage Simulator for IEEE Competition
+# Setting up NVIDIA and Docker Environment 
+
 
 # Prior Requirements.
 
