@@ -1,3 +1,3 @@
-## IEEE_SouthEastCon_Simulation
+# IEEE_SouthEastCon_Simulation
 
-# Stage simluator for IEEE_SouthEastCon 2025
+## Stage simluator for IEEE_SouthEastCon 2025
