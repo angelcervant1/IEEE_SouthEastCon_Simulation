@@ -1,0 +1,12 @@
+<xacro:macro name="wheel" params="name">
+  <link name="${name}"/>
+  <joint name="${name}_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="${name}"/>
+  </joint>
+</xacro:macro>
+
+<robot name="example_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:wheel name="wheel1"/>
+  <xacro:wheel name="wheel2"/>
+</robot>
