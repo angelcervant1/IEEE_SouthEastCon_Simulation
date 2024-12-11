@@ -3,7 +3,7 @@
 /ieee_simulation/ws/install/gazebo_tools/share/ament_index/resource_index/packages/gazebo_tools
 /ieee_simulation/ws/install/gazebo_tools/share/gazebo_tools/package.xml
 /ieee_simulation/ws/install/gazebo_tools/share/gazebo_tools/launch/gazebo.launch.py
-/ieee_simulation/ws/install/gazebo_tools/share/gazebo_tools/description/my_robot.xacro
+/ieee_simulation/ws/install/gazebo_tools/share/gazebo_tools/description/my_robot.urdf.xacro
 /ieee_simulation/ws/install/gazebo_tools/share/gazebo_tools/rviz/stage.rviz
 /ieee_simulation/ws/install/gazebo_tools/share/gazebo_tools/worlds/stage.sdf
 /ieee_simulation/ws/install/gazebo_tools/lib/python3.10/site-packages/gazebo_tools-0.0.0-py3.10.egg-info/dependency_links.txt

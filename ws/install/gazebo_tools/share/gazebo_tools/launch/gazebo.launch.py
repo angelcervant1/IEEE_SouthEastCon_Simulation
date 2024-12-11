@@ -1,52 +1,94 @@
+#!/usr/bin/env python3
 
-
-# !/usr/bin/env python3
-
-# import os
-import launch_ros.descriptions
 import xacro
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch_ros.actions import Node
 from launch.actions import ExecuteProcess, RegisterEventHandler, EmitEvent
-from launch.substitutions import LaunchConfiguration
 from launch.event_handlers import OnProcessExit
 from launch.events import Shutdown
 from pathlib import Path
+from launch.substitutions import LaunchConfiguration, Command
+import launch_ros.descriptions
 
-
-pkg_path = get_package_share_directory("gazebo_tools")# Get the gazebo_tools package folder
+# Get the gazebo_tools package folder
+pkg_path = get_package_share_directory("gazebo_tools")
 
 # Convert Path to string using str() to ensure correct handling
-robot_description_path = str(Path(pkg_path) / "description" / "my_robot.xacro")
+robot_description_path = str(Path(pkg_path) / "description" / "my_robot.urdf.xacro")
 rviz_config_file_path = str(Path(pkg_path) / "rviz" / "stage.rviz")
 world_path = str(Path(pkg_path) / "worlds" / "stage.sdf")
 
-robot_description = {"robot_description" : xacro.process_file(robot_description_path).toxml()}
+# Process the xacro file into a URDF string
+# robot_description_str = xacro.process_file(robot_description_path).toxml()
+xacro_file = robot_description_path
+use_sim_time = LaunchConfiguration('use_sim_time', default='true')
 
+robot_description_config = Command(
+    ["xacro ", xacro_file, " sim_mode:=", use_sim_time]
+)
 
+# Now that we have the URDF string, we can pass it as a parameter
+robot_description_params = {
+        "robot_description": launch_ros.descriptions.ParameterValue(
+            robot_description_config, value_type=str
+        ),
+        "use_sim_time": use_sim_time,
+    }
+
+# Command to launch Gazebo
 sim_cmd = ExecuteProcess(
     cmd=["ign", "gazebo", "-r", world_path],
     output="screen"
 )
 
+# Command to open RViz
 open_rviz = Node(
     package="rviz2",
     executable="rviz2",
     arguments=["-d", rviz_config_file_path]
 )
 
-
+# Robot state publisher node
 robot_state_publisher = Node(
     package="robot_state_publisher",
     executable="robot_state_publisher",
-    output="both",
-    parameters=[robot_description]
+    output="screen",
+    parameters=[robot_description_params]
 )
 
+
+# Spawn the robot in Gazebo
+robot_gazebo_bridge = Node(
+        package="ros_gz_sim",
+        executable="create",
+        arguments=[
+            "-name",
+            "groundhog",
+            "-topic",
+            "/robot_description",
+            "-x",
+            "0",
+            "-y",
+            "0",
+            "-z",
+            "5",
+        ],
+)
+robot_description = xacro.process_file(robot_description_path).toxml()
+
+spawn_entity = ExecuteProcess(
+    cmd=[
+        "ros2", "service", "call", "/spawn_entity",
+        "gazebo_msgs/SpawnEntity",
+        f"{{name: 'my_robot', xml: {robot_description}}}"
+    ],
+    output="screen"
+)
+
+
+# Define the launch description
 def generate_launch_description():
-    # use_sim_time = LaunchConfiguration("use_sim_time", default="true")
-    
     return LaunchDescription([
         sim_cmd,
         Node(
@@ -54,7 +96,7 @@ def generate_launch_description():
             executable="parameter_bridge",
             arguments=[
                 "/r1/gazebo/command/twist@geometry_msgs/msg/Twist@ignition.msgs.Twist",
-                "/model/r1/odometry@nav_msgs/msg//Odometry@ignition.msgs.Odometry"
+                "/model/r1/odometry@nav_msgs/msg/Odometry@ignition.msgs.Odometry"
             ],
             remappings=[
                 ("/r1/gazebo/command/twist", "r1/cmd/vel"),
@@ -62,15 +104,14 @@ def generate_launch_description():
             ],
             output="screen"
         ),
-        
         open_rviz,
         robot_state_publisher,
-        
+        robot_gazebo_bridge,
+        # spawn_entity,
         RegisterEventHandler(
             event_handler=OnProcessExit(
                 target_action=sim_cmd,
                 on_exit=[EmitEvent(event=Shutdown)]
             )
         )
-        
     ])

@@ -1,0 +1,20 @@
+[0.510s] Invoking command in '/ieee_simulation/ws/src/nav_main': PYTHONPATH=/ieee_simulation/ws/build/nav_main/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/ieee_simulation/ws/install/nav_main/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/nav_main build --build-base /ieee_simulation/ws/build/nav_main/build install --record /ieee_simulation/ws/build/nav_main/install.log --single-version-externally-managed install_data
+[0.654s] running egg_info
+[0.654s] writing ../../build/nav_main/nav_main.egg-info/PKG-INFO
+[0.654s] writing dependency_links to ../../build/nav_main/nav_main.egg-info/dependency_links.txt
+[0.654s] writing entry points to ../../build/nav_main/nav_main.egg-info/entry_points.txt
+[0.654s] writing requirements to ../../build/nav_main/nav_main.egg-info/requires.txt
+[0.654s] writing top-level names to ../../build/nav_main/nav_main.egg-info/top_level.txt
+[0.655s] reading manifest file '../../build/nav_main/nav_main.egg-info/SOURCES.txt'
+[0.656s] writing manifest file '../../build/nav_main/nav_main.egg-info/SOURCES.txt'
+[0.656s] running build
+[0.656s] running build_py
+[0.656s] running install
+[0.656s] running install_lib
+[0.657s] running install_data
+[0.657s] running install_egg_info
+[0.658s] removing '/ieee_simulation/ws/install/nav_main/lib/python3.10/site-packages/nav_main-0.0.0-py3.10.egg-info' (and everything under it)
+[0.658s] Copying ../../build/nav_main/nav_main.egg-info to /ieee_simulation/ws/install/nav_main/lib/python3.10/site-packages/nav_main-0.0.0-py3.10.egg-info
+[0.659s] running install_scripts
+[0.673s] writing list of installed files to '/ieee_simulation/ws/build/nav_main/install.log'
+[0.694s] Invoked command in '/ieee_simulation/ws/src/nav_main' returned '0': PYTHONPATH=/ieee_simulation/ws/build/nav_main/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/ieee_simulation/ws/install/nav_main/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/nav_main build --build-base /ieee_simulation/ws/build/nav_main/build install --record /ieee_simulation/ws/build/nav_main/install.log --single-version-externally-managed install_data
