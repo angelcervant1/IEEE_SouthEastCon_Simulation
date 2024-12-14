@@ -1,0 +1,16 @@
+package.xml
+setup.cfg
+setup.py
+description/my_robot.urdf.xacro
+gazebo_tools/__init__.py
+gazebo_tools.egg-info/PKG-INFO
+gazebo_tools.egg-info/SOURCES.txt
+gazebo_tools.egg-info/dependency_links.txt
+gazebo_tools.egg-info/entry_points.txt
+gazebo_tools.egg-info/requires.txt
+gazebo_tools.egg-info/top_level.txt
+gazebo_tools.egg-info/zip-safe
+launch/gazebo.launch.py
+resource/gazebo_tools
+rviz/stage.rviz
+worlds/stage.sdf

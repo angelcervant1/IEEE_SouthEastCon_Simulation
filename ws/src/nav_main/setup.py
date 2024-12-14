@@ -14,7 +14,7 @@ setup(
         ('share/' + package_name, ['package.xml']),
         (os.path.join('share', package_name, 'scripts'), glob(os.path.join('scripts', '*.[pxy][yma]*'))),
         (os.path.join('share', package_name, 'launch'), glob(os.path.join('launch', '*launch.[pxy][yma]*'))),
-        (os.path.join('share', package_name, 'controller_config'), glob(os.path.join('controller_config', '*.yaml'))),
+        (os.path.join('share', package_name, 'config'), glob(os.path.join('config', '*.yaml'))),
 
     ],
     install_requires=['setuptools', 'numpy'],
@@ -26,7 +26,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'holonomic_controller = nav_main.scripts.holonomic_controller:main',
+            'holonomic_controller = nav_main.holonomic_controller:main',
         ],
     },
 )

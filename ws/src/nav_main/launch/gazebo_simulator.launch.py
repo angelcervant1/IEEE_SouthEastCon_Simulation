@@ -42,26 +42,28 @@ def generate_launch_description():
         Node(
             package='controller_manager',
             executable='spawner',
-            name='controller_spawner',
-            parameters=[controller_config_file]
-        ),
+            name='controller_manager',
+            arguments=['-p', controller_config_file, 'holonomic_velocity_controller']
+        )
+
 
         # Load the Holonomic Velocity Controller
-        Node(
-            package='ros2_control',
-            executable='control',
-            name='load_holonomic_controller',
-            parameters=[
-                {'controller_name': 'holonomic_velocity_controller'},
-                {'set_state': 'start'}
-            ]
-        ),
+        # Node(
+        #     package='ros2_control',
+        #     executable='control',
+        #     name='load_holonomic_controller',
+        #     parameters=[
+        #         {'controller_name': 'holonomic_velocity_controller'},
+        #         {'set_state': 'start'}
+        #     ]
+        # ),
 
         # Launch the teleop node to send velocity commands
-        Node(
-            package='teleop_twist_keyboard',
-            executable='teleop_twist_keyboard',
-            name='teleop',
-            remappings=[('/cmd_vel', '/cmd_vel')]
-        ),
+        # Node(
+        #     package='teleop_twist_keyboard',
+        #     executable='teleop_twist_keyboard',
+        #     name='teleop',
+        #     # remappings=[('/cmd_vel', '/cmd_vel')]
+        #     output='screen'
+        # )
     ])

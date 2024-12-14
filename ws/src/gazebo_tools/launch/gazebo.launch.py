@@ -93,7 +93,13 @@ joint_state_publisher = Node(
 
 def generate_launch_description():
     return LaunchDescription([
+        
+        robot_state_publisher,
+        joint_state_publisher,
+        robot_gazebo_bridge,
         sim_cmd,
+        open_rviz,
+        
         Node(
             package="ros_gz_bridge",
             executable="parameter_bridge",
@@ -107,10 +113,7 @@ def generate_launch_description():
             ],
             output="screen"
         ),
-        open_rviz,
-        robot_state_publisher,
-        robot_gazebo_bridge,
-        joint_state_publisher,
+        
         # spawn_entity,
         RegisterEventHandler(
             event_handler=OnProcessExit(
