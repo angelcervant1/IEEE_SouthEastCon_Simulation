@@ -1,4 +1,6 @@
 from setuptools import find_packages, setup
+import os
+from glob import glob
 
 package_name = 'nav_main'
 
@@ -10,8 +12,12 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        (os.path.join('share', package_name, 'scripts'), glob(os.path.join('scripts', '*.[pxy][yma]*'))),
+        (os.path.join('share', package_name, 'launch'), glob(os.path.join('launch', '*launch.[pxy][yma]*'))),
+        (os.path.join('share', package_name, 'controller_config'), glob(os.path.join('controller_config', '*.yaml'))),
+
     ],
-    install_requires=['setuptools'],
+    install_requires=['setuptools', 'numpy'],
     zip_safe=True,
     maintainer='root',
     maintainer_email='angelcervant@hotmail.com',
@@ -20,6 +26,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'holonomic_controller = nav_main.scripts.holonomic_controller:main',
         ],
     },
 )

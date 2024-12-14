@@ -1,7 +1,10 @@
 <?xml version="1.0"?>
 <robot name="my_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
-  
-  <!-- Define the base link with inertia properties -->
+
+  <!-- Fixed map frame -->
+  <link name="map"/>
+
+  <!-- Base link with inertia properties -->
   <link name="base_link">
     <visual>
       <geometry>
@@ -15,8 +18,15 @@
     </inertial>
   </link>
 
-  <!-- Define the first wheel with inertia properties -->
-  <xacro:macro name="wheel" params="name">
+  <!-- Fixed joint between map and base_link -->
+  <joint name="map_to_base_link" type="fixed">
+    <parent link="map"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/> <!-- Adjust origin if needed -->
+  </joint>
+
+  <!-- Define the rotating wheel macro -->
+  <xacro:macro name="wheel" params="name position_x position_y">
     <link name="${name}">
       <visual>
         <geometry>
@@ -24,19 +34,37 @@
         </geometry>
         <material name="black"/>
       </visual>
+      <collision>
+        <geometry>
+          <cylinder length="0.05" radius="0.1"/>
+        </geometry>
+      </collision>
       <inertial>
         <mass value="0.1"/> <!-- Mass of the wheel -->
         <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/> <!-- Inertia tensor for the wheel -->
       </inertial>
     </link>
+    <!-- Continuous joint to allow rotation -->
     <joint name="${name}_joint" type="continuous">
       <parent link="base_link"/>
       <child link="${name}"/>
-      <origin xyz="0.0 0.0 0.0"/> <!-- Position relative to base_link -->
+      <origin xyz="${position_x} ${position_y} 0.0" rpy="0 1.57 0"/> <!-- Position relative to base_link -->
+      <axis xyz="1 0 0"/> <!-- Wheel rotation around the Y-axis -->
     </joint>
   </xacro:macro>
 
   <!-- Use the macro to create wheels -->
-  <xacro:wheel name="wheel1"/>
-  <xacro:wheel name="wheel2"/>
+  <!-- Front Left Wheel -->
+
+  <xacro:property name="wheel_offset_x" value="0.25"/> <!-- Front and rear offset along X -->
+  <xacro:property name="wheel_offset_y" value="0.20"/> <!-- Left and right offset along Y -->
+
+  <!-- Front Left Wheel -->
+  <xacro:wheel name="front_left_wheel" position_x="${wheel_offset_x}" position_y="${wheel_offset_y}"/>
+  <!-- Front Right Wheel -->
+  <xacro:wheel name="front_right_wheel" position_x="${wheel_offset_x}" position_y="-${wheel_offset_y}"/>
+  <!-- Rear Left Wheel -->
+  <xacro:wheel name="rear_left_wheel" position_x="-${wheel_offset_x}" position_y="${wheel_offset_y}"/>
+  <!-- Rear Right Wheel -->
+  <xacro:wheel name="rear_right_wheel" position_x="-${wheel_offset_x}" position_y="-${wheel_offset_y}"/>
 </robot>

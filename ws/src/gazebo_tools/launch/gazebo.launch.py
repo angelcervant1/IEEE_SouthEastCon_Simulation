@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import xacro
+
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch_ros.actions import Node
@@ -11,16 +11,12 @@ from pathlib import Path
 from launch.substitutions import LaunchConfiguration, Command
 import launch_ros.descriptions
 
-# Get the gazebo_tools package folder
 pkg_path = get_package_share_directory("gazebo_tools")
 
-# Convert Path to string using str() to ensure correct handling
 robot_description_path = str(Path(pkg_path) / "description" / "my_robot.urdf.xacro")
 rviz_config_file_path = str(Path(pkg_path) / "rviz" / "stage.rviz")
 world_path = str(Path(pkg_path) / "worlds" / "stage.sdf")
 
-# Process the xacro file into a URDF string
-# robot_description_str = xacro.process_file(robot_description_path).toxml()
 xacro_file = robot_description_path
 use_sim_time = LaunchConfiguration('use_sim_time', default='true')
 
@@ -28,7 +24,7 @@ robot_description_config = Command(
     ["xacro ", xacro_file, " sim_mode:=", use_sim_time]
 )
 
-# Now that we have the URDF string, we can pass it as a parameter
+# topc to robot_desc
 robot_description_params = {
         "robot_description": launch_ros.descriptions.ParameterValue(
             robot_description_config, value_type=str
@@ -36,20 +32,20 @@ robot_description_params = {
         "use_sim_time": use_sim_time,
     }
 
-# Command to launch Gazebo
+# launch Gazebo
 sim_cmd = ExecuteProcess(
     cmd=["ign", "gazebo", "-r", world_path],
     output="screen"
 )
 
-# Command to open RViz
+# open RViz
 open_rviz = Node(
     package="rviz2",
     executable="rviz2",
     arguments=["-d", rviz_config_file_path]
 )
 
-# Robot state publisher node
+# launch robot_state_pub
 robot_state_publisher = Node(
     package="robot_state_publisher",
     executable="robot_state_publisher",
@@ -58,7 +54,7 @@ robot_state_publisher = Node(
 )
 
 
-# Spawn the robot in Gazebo
+# spawm robot
 robot_gazebo_bridge = Node(
         package="ros_gz_sim",
         executable="create",
@@ -72,22 +68,29 @@ robot_gazebo_bridge = Node(
             "-y",
             "0",
             "-z",
-            "5",
+            "1",
         ],
 )
-robot_description = xacro.process_file(robot_description_path).toxml()
 
-spawn_entity = ExecuteProcess(
-    cmd=[
-        "ros2", "service", "call", "/spawn_entity",
-        "gazebo_msgs/SpawnEntity",
-        f"{{name: 'my_robot', xml: {robot_description}}}"
-    ],
-    output="screen"
+# launch jont_state_pub
+joint_state_publisher = Node(
+    package="joint_state_publisher",
+    executable="joint_state_publisher",
+    output="screen",
 )
 
+# robot_description = xacro.process_file(robot_description_path).toxml()
 
-# Define the launch description
+# spawn_entity = ExecuteProcess(
+#     cmd=[
+#         "ros2", "service", "call", "/spawn_entity",
+#         "gazebo_msgs/SpawnEntity",
+#         f"{{name: 'my_robot', xml: {robot_description}}}"
+#     ],
+#     output="screen"
+# )
+
+
 def generate_launch_description():
     return LaunchDescription([
         sim_cmd,
@@ -107,6 +110,7 @@ def generate_launch_description():
         open_rviz,
         robot_state_publisher,
         robot_gazebo_bridge,
+        joint_state_publisher,
         # spawn_entity,
         RegisterEventHandler(
             event_handler=OnProcessExit(

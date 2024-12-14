@@ -1,0 +1,30 @@
+<launch>
+
+    <!-- Launch gazebo rviz and transform broadcasters -->
+
+    <include file="$(find gazebo_tools)/launch/gazebo.launch.py" output="screen"/>
+
+
+    <!-- Launch holonomc controller node -->
+    <node pkg="$(find nav_main)" exec="holonomic_controller.py" name="controller" output="screen">
+       
+    </node>
+
+    <!-- Launch ros2 control manager -->
+
+    <node pkg="controller_manager" exec="spawner" name="holonomic_velocity_controller" output="screen">
+        <param name="use_sim_time" value="true"/>
+        <param name="controller_yaml_file" value="$(find nav_main)/controller_config/holonomic_velocity_controller.yaml"/>
+    </node>
+
+    <!-- Load Holonomic Velocity Controller -->
+    <node pkg="ros2_control" exec="control" name="load_holonomic_controller" output="screen">
+        <param name="controller_name" value="holonomic_velocity_controller"/>
+        <param name="set_state" value="start"/>
+    </node>
+
+    <!-- Launch teleop  -->
+    <node pkg="teleop_twist_keyboard" exec="teleop_twist_keyboard" name="teleop" output="screen">
+        <remap from="cmd_vel" to="/cmd_vel"/>
+    </node>
+</launch>
