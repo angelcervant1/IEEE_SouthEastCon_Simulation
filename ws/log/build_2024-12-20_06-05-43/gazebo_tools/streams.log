@@ -1,0 +1,16 @@
+[0.531s] Invoking command in '/ieee_simulation/ws/build/gazebo_tools': PYTHONPATH=/ieee_simulation/ws/build/gazebo_tools/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/ieee_simulation/ws/install/gazebo_tools/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /ieee_simulation/ws/build/gazebo_tools/build --no-deps symlink_data
+[0.695s] running develop
+[0.780s] running egg_info
+[0.780s] writing gazebo_tools.egg-info/PKG-INFO
+[0.780s] writing dependency_links to gazebo_tools.egg-info/dependency_links.txt
+[0.780s] writing entry points to gazebo_tools.egg-info/entry_points.txt
+[0.780s] writing requirements to gazebo_tools.egg-info/requires.txt
+[0.780s] writing top-level names to gazebo_tools.egg-info/top_level.txt
+[0.781s] reading manifest file 'gazebo_tools.egg-info/SOURCES.txt'
+[0.782s] writing manifest file 'gazebo_tools.egg-info/SOURCES.txt'
+[0.783s] running build_ext
+[0.783s] Creating /ieee_simulation/ws/install/gazebo_tools/lib/python3.10/site-packages/gazebo-tools.egg-link (link to .)
+[0.783s] 
+[0.783s] Installed /ieee_simulation/ws/build/gazebo_tools
+[0.783s] running symlink_data
+[0.805s] Invoked command in '/ieee_simulation/ws/build/gazebo_tools' returned '0': PYTHONPATH=/ieee_simulation/ws/build/gazebo_tools/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/ieee_simulation/ws/install/gazebo_tools/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /ieee_simulation/ws/build/gazebo_tools/build --no-deps symlink_data

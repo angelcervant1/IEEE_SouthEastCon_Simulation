@@ -10,6 +10,7 @@ from launch.events import Shutdown
 from pathlib import Path
 from launch.substitutions import LaunchConfiguration, Command
 import launch_ros.descriptions
+from launch.substitutions import PathJoinSubstitution
 
 pkg_path = get_package_share_directory("gazebo_tools")
 
@@ -23,6 +24,10 @@ use_sim_time = LaunchConfiguration('use_sim_time', default='true')
 robot_description_config = Command(
     ["xacro ", xacro_file, " sim_mode:=", use_sim_time]
 )
+
+controller_config = str(Path("nav_main") / "config" / "holonomic_velocity_controller.yaml")
+
+
 
 # topc to robot_desc
 robot_description_params = {
@@ -79,6 +84,7 @@ joint_state_publisher = Node(
     output="screen",
 )
 
+
 # robot_description = xacro.process_file(robot_description_path).toxml()
 
 # spawn_entity = ExecuteProcess(
@@ -99,7 +105,6 @@ def generate_launch_description():
         robot_gazebo_bridge,
         sim_cmd,
         open_rviz,
-        
         Node(
             package="ros_gz_bridge",
             executable="parameter_bridge",
@@ -108,17 +113,17 @@ def generate_launch_description():
                 "/model/r1/odometry@nav_msgs/msg/Odometry@ignition.msgs.Odometry"
             ],
             remappings=[
-                ("/r1/gazebo/command/twist", "r1/cmd/vel"),
+                ("/r1/gazebo/command/twist", "/r1/cmd_vel"),
                 ("/model/r1/odometry", "/r1/odom"),
             ],
             output="screen"
         ),
-        
+            
         # spawn_entity,
-        RegisterEventHandler(
-            event_handler=OnProcessExit(
-                target_action=sim_cmd,
-                on_exit=[EmitEvent(event=Shutdown)]
-            )
-        )
+        # RegisterEventHandler(
+        #     event_handler=OnProcessExit(
+        #         target_action=sim_cmd,
+        #         on_exit=[EmitEvent(event=Shutdown)]
+        #     )
+        # )
     ])

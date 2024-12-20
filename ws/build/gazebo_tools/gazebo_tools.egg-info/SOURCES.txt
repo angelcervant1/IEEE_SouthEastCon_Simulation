@@ -1,6 +1,13 @@
 package.xml
 setup.cfg
 setup.py
+../../build/gazebo_tools/gazebo_tools.egg-info/PKG-INFO
+../../build/gazebo_tools/gazebo_tools.egg-info/SOURCES.txt
+../../build/gazebo_tools/gazebo_tools.egg-info/dependency_links.txt
+../../build/gazebo_tools/gazebo_tools.egg-info/entry_points.txt
+../../build/gazebo_tools/gazebo_tools.egg-info/requires.txt
+../../build/gazebo_tools/gazebo_tools.egg-info/top_level.txt
+../../build/gazebo_tools/gazebo_tools.egg-info/zip-safe
 description/my_robot.urdf.xacro
 gazebo_tools/__init__.py
 gazebo_tools.egg-info/PKG-INFO
