@@ -7,6 +7,7 @@ Panels:
         - /Global Options1
         - /Status1
         - /RobotModel1
+        - /RobotModel1/Status1
         - /RobotModel1/Description Topic1
       Splitter Ratio: 0.5
     Tree Height: 651
@@ -62,22 +63,188 @@ Visualization Manager:
         Value: /robot_description
       Enabled: true
       Links:
+        A_r1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        A_r2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        A_r3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        A_r4:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        A_r5:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        A_r6:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        A_r7:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        A_r8:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         All Links Enabled: true
+        B_r1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        B_r2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        B_r3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        B_r4:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        B_r5:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        B_r6:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        B_r7:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        B_r8:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        BackLeft_wheel:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        BackRight_wheel:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        C_r1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        C_r2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        C_r3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        C_r4:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        C_r5:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        C_r6:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        C_r7:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        C_r8:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        D_r1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        D_r2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        D_r3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        D_r4:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        D_r5:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        D_r6:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        D_r7:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        D_r8:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         Expand Joint Details: false
         Expand Link Details: false
         Expand Tree: false
+        FrontLeft_wheel:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        FrontRight_wheel:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         Link Tree Style: Links in Alphabetic Order
         base_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        front_left_wheel:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        front_right_wheel:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -86,12 +253,8 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        rear_left_wheel:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
           Value: true
-        rear_right_wheel:
+        odom:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -108,18 +271,84 @@ Visualization Manager:
       Enabled: true
       Frame Timeout: 15
       Frames:
+        A_r1:
+          Value: true
+        A_r2:
+          Value: true
+        A_r3:
+          Value: true
+        A_r4:
+          Value: true
+        A_r5:
+          Value: true
+        A_r6:
+          Value: true
+        A_r7:
+          Value: true
+        A_r8:
+          Value: true
         All Enabled: true
+        B_r1:
+          Value: true
+        B_r2:
+          Value: true
+        B_r3:
+          Value: true
+        B_r4:
+          Value: true
+        B_r5:
+          Value: true
+        B_r6:
+          Value: true
+        B_r7:
+          Value: true
+        B_r8:
+          Value: true
+        BackLeft_wheel:
+          Value: true
+        BackRight_wheel:
+          Value: true
+        C_r1:
+          Value: true
+        C_r2:
+          Value: true
+        C_r3:
+          Value: true
+        C_r4:
+          Value: true
+        C_r5:
+          Value: true
+        C_r6:
+          Value: true
+        C_r7:
+          Value: true
+        C_r8:
+          Value: true
+        D_r1:
+          Value: true
+        D_r2:
+          Value: true
+        D_r3:
+          Value: true
+        D_r4:
+          Value: true
+        D_r5:
+          Value: true
+        D_r6:
+          Value: true
+        D_r7:
+          Value: true
+        D_r8:
+          Value: true
+        FrontLeft_wheel:
+          Value: true
+        FrontRight_wheel:
+          Value: true
         base_link:
-          Value: true
-        front_left_wheel:
-          Value: true
-        front_right_wheel:
           Value: true
         map:
           Value: true
-        rear_left_wheel:
-          Value: true
-        rear_right_wheel:
+        odom:
           Value: true
       Marker Scale: 1
       Name: TF
@@ -128,15 +357,76 @@ Visualization Manager:
       Show Names: false
       Tree:
         map:
-          base_link:
-            front_left_wheel:
-              {}
-            front_right_wheel:
-              {}
-            rear_left_wheel:
-              {}
-            rear_right_wheel:
-              {}
+          odom:
+            base_link:
+              BackLeft_wheel:
+                D_r1:
+                  {}
+                D_r2:
+                  {}
+                D_r3:
+                  {}
+                D_r4:
+                  {}
+                D_r5:
+                  {}
+                D_r6:
+                  {}
+                D_r7:
+                  {}
+                D_r8:
+                  {}
+              BackRight_wheel:
+                C_r1:
+                  {}
+                C_r2:
+                  {}
+                C_r3:
+                  {}
+                C_r4:
+                  {}
+                C_r5:
+                  {}
+                C_r6:
+                  {}
+                C_r7:
+                  {}
+                C_r8:
+                  {}
+              FrontLeft_wheel:
+                B_r1:
+                  {}
+                B_r2:
+                  {}
+                B_r3:
+                  {}
+                B_r4:
+                  {}
+                B_r5:
+                  {}
+                B_r6:
+                  {}
+                B_r7:
+                  {}
+                B_r8:
+                  {}
+              FrontRight_wheel:
+                A_r1:
+                  {}
+                A_r2:
+                  {}
+                A_r3:
+                  {}
+                A_r4:
+                  {}
+                A_r5:
+                  {}
+                A_r6:
+                  {}
+                A_r7:
+                  {}
+                A_r8:
+                  {}
       Update Interval: 0
       Value: true
   Enabled: true
@@ -185,7 +475,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 2.4508087635040283
+      Distance: 0.9226703643798828
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -200,10 +490,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.5303982496261597
+      Pitch: 0.23039831221103668
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 6.173583030700684
+      Yaw: 1.9685813188552856
     Saved: ~
 Window Geometry:
   Displays:

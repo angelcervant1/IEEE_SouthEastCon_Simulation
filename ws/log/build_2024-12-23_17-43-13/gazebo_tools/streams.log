@@ -1,0 +1,20 @@
+[0.550s] Invoking command in '/ieee_simulation/ws/src/gazebo_tools': PYTHONPATH=/ieee_simulation/ws/build/gazebo_tools/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/ieee_simulation/ws/install/gazebo_tools/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/gazebo_tools build --build-base /ieee_simulation/ws/build/gazebo_tools/build install --record /ieee_simulation/ws/build/gazebo_tools/install.log --single-version-externally-managed install_data
+[0.695s] running egg_info
+[0.695s] writing ../../build/gazebo_tools/gazebo_tools.egg-info/PKG-INFO
+[0.695s] writing dependency_links to ../../build/gazebo_tools/gazebo_tools.egg-info/dependency_links.txt
+[0.695s] writing entry points to ../../build/gazebo_tools/gazebo_tools.egg-info/entry_points.txt
+[0.695s] writing requirements to ../../build/gazebo_tools/gazebo_tools.egg-info/requires.txt
+[0.695s] writing top-level names to ../../build/gazebo_tools/gazebo_tools.egg-info/top_level.txt
+[0.696s] reading manifest file '../../build/gazebo_tools/gazebo_tools.egg-info/SOURCES.txt'
+[0.697s] writing manifest file '../../build/gazebo_tools/gazebo_tools.egg-info/SOURCES.txt'
+[0.698s] running build
+[0.698s] running build_py
+[0.698s] running install
+[0.698s] running install_lib
+[0.699s] running install_data
+[0.699s] running install_egg_info
+[0.700s] removing '/ieee_simulation/ws/install/gazebo_tools/lib/python3.10/site-packages/gazebo_tools-0.0.0-py3.10.egg-info' (and everything under it)
+[0.701s] Copying ../../build/gazebo_tools/gazebo_tools.egg-info to /ieee_simulation/ws/install/gazebo_tools/lib/python3.10/site-packages/gazebo_tools-0.0.0-py3.10.egg-info
+[0.701s] running install_scripts
+[0.717s] writing list of installed files to '/ieee_simulation/ws/build/gazebo_tools/install.log'
+[0.738s] Invoked command in '/ieee_simulation/ws/src/gazebo_tools' returned '0': PYTHONPATH=/ieee_simulation/ws/build/gazebo_tools/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/ieee_simulation/ws/install/gazebo_tools/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/gazebo_tools build --build-base /ieee_simulation/ws/build/gazebo_tools/build install --record /ieee_simulation/ws/build/gazebo_tools/install.log --single-version-externally-managed install_data

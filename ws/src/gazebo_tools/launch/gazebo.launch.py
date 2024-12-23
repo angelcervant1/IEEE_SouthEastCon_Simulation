@@ -10,22 +10,35 @@ from launch.events import Shutdown
 from pathlib import Path
 from launch.substitutions import LaunchConfiguration, Command
 import launch_ros.descriptions
-from launch.substitutions import PathJoinSubstitution
+import os
 
 pkg_path = get_package_share_directory("gazebo_tools")
+robot_xacro_name = "BaseMecanumURDF_old.urdf.xacro"
 
-robot_description_path = str(Path(pkg_path) / "description" / "my_robot.urdf.xacro")
+robot_description_path = str(Path(pkg_path) / "description" / robot_xacro_name)
 rviz_config_file_path = str(Path(pkg_path) / "rviz" / "stage.rviz")
 world_path = str(Path(pkg_path) / "worlds" / "stage.sdf")
+models_path = str(Path(pkg_path) / "meshes")
+
 
 xacro_file = robot_description_path
 use_sim_time = LaunchConfiguration('use_sim_time', default='true')
 
+
+# For .xacro
 robot_description_config = Command(
     ["xacro ", xacro_file, " sim_mode:=", use_sim_time]
 )
+os.environ['GZ_SIM_RESOURCE_PATH'] = models_path + ":" + world_path
 
-controller_config = str(Path("nav_main") / "config" / "holonomic_velocity_controller.yaml")
+# For .urdf
+# robot_description_path = str(Path(pkg_path) / "description" / "BaseMecanumURDF_old.urdf")
+# robot_description_config = open(robot_description_path).read()
+
+# # stage_description_path = str(Path(pkg_path) / "description" / "MiningMayhemField.urdf")
+# # stage_description_config = open(stage_description_path).read()
+
+# controller_config = str(Path("nav_main") / "config" / "holonomic_velocity_controller.yaml")
 
 
 
@@ -36,6 +49,7 @@ robot_description_params = {
         ),
         "use_sim_time": use_sim_time,
     }
+
 
 # launch Gazebo
 sim_cmd = ExecuteProcess(
@@ -59,6 +73,7 @@ robot_state_publisher = Node(
 )
 
 
+
 # spawm robot
 robot_gazebo_bridge = Node(
         package="ros_gz_sim",
@@ -77,6 +92,7 @@ robot_gazebo_bridge = Node(
         ],
 )
 
+
 # launch jont_state_pub
 joint_state_publisher = Node(
     package="joint_state_publisher",
@@ -85,16 +101,6 @@ joint_state_publisher = Node(
 )
 
 
-# robot_description = xacro.process_file(robot_description_path).toxml()
-
-# spawn_entity = ExecuteProcess(
-#     cmd=[
-#         "ros2", "service", "call", "/spawn_entity",
-#         "gazebo_msgs/SpawnEntity",
-#         f"{{name: 'my_robot', xml: {robot_description}}}"
-#     ],
-#     output="screen"
-# )
 
 
 def generate_launch_description():
@@ -103,7 +109,6 @@ def generate_launch_description():
         robot_state_publisher,
         joint_state_publisher,
         robot_gazebo_bridge,
-        sim_cmd,
         open_rviz,
         Node(
             package="ros_gz_bridge",
@@ -118,12 +123,11 @@ def generate_launch_description():
             ],
             output="screen"
         ),
-            
-        # spawn_entity,
-        # RegisterEventHandler(
-        #     event_handler=OnProcessExit(
-        #         target_action=sim_cmd,
-        #         on_exit=[EmitEvent(event=Shutdown)]
-        #     )
-        # )
+        sim_cmd, 
+        RegisterEventHandler(
+            event_handler=OnProcessExit(
+                target_action=sim_cmd,
+                on_exit=[EmitEvent(event=Shutdown)]
+            )
+        )
     ])
