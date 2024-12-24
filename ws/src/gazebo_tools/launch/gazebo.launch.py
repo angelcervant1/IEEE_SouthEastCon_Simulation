@@ -29,7 +29,10 @@ use_sim_time = LaunchConfiguration('use_sim_time', default='true')
 robot_description_config = Command(
     ["xacro ", xacro_file, " sim_mode:=", use_sim_time]
 )
-os.environ['GZ_SIM_RESOURCE_PATH'] = models_path + ":" + world_path
+
+# additional_paths = [models_path, world_path]
+# existing_paths = os.environ.get("GZ_SIM_RESOURCE_PATH", "")
+# os.environ["GZ_SIM_RESOURCE_PATH"] = ":".join(filter(None, [existing_paths] + additional_paths))
 
 # For .urdf
 # robot_description_path = str(Path(pkg_path) / "description" / "BaseMecanumURDF_old.urdf")
@@ -80,7 +83,7 @@ robot_gazebo_bridge = Node(
         executable="create",
         arguments=[
             "-name",
-            "groundhog",
+            "robot",
             "-topic",
             "/robot_description",
             "-x",
@@ -88,7 +91,7 @@ robot_gazebo_bridge = Node(
             "-y",
             "0",
             "-z",
-            "1",
+            "2",
         ],
 )
 
@@ -99,9 +102,6 @@ joint_state_publisher = Node(
     executable="joint_state_publisher",
     output="screen",
 )
-
-
-
 
 def generate_launch_description():
     return LaunchDescription([
@@ -124,10 +124,10 @@ def generate_launch_description():
             output="screen"
         ),
         sim_cmd, 
-        RegisterEventHandler(
-            event_handler=OnProcessExit(
-                target_action=sim_cmd,
-                on_exit=[EmitEvent(event=Shutdown)]
-            )
-        )
+        # RegisterEventHandler(
+        #     event_handler=OnProcessExit(
+        #         target_action=sim_cmd,
+        #         on_exit=[EmitEvent(event=Shutdown)]
+        #     )
+        # )
     ])

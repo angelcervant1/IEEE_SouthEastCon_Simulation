@@ -8,17 +8,7 @@
     <link name="odom">
       <visual>
         <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
-        <geometry>
-          <box size="0.1 0.1 0.1" />
-        </geometry>
       </visual>
-
-    <collision>
-      <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
-      <geometry>
-        <box size="0.1 0.1 0.1" />
-      </geometry>
-    </collision>
   </link>
 
   <!-- Joint to connect odom and base_link -->
@@ -27,6 +17,7 @@
     <child link="base_link" />
     <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
   </joint>
+
   <link
     name="base_link">
     <inertial>
@@ -49,7 +40,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/base_link.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/base_link.STL" />
       </geometry>
       <material
         name="">
@@ -63,7 +54,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/base_link.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/base_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -83,27 +74,56 @@
         iyz="-3.32779596876557E-08"
         izz="9.1793540218031E-06" />
     </inertial>
-    <visual>
+    <!-- <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.0641393198112098" />
+      <inertia
+        ixx="0.0001"
+        ixy="0"
+        ixz="0"
+        iyy="0.0001"
+        iyz="0"
+        izz="0.0001" />
+    </inertial> -->
+    <!-- <visual>
       <origin
         xyz="0 0 0"
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/FrontRight_wheel.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/FrontRight_wheel.STL" />
       </geometry>
       <material
         name="">
         <color
           rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
       </material>
+    </visual>  -->
+    <!-- <collision>
+      <origin
+        xyz="-0.0200915998046353 -4.09353535379131E-05 -7.3187470010113E-05"
+        rpy="0 0 0" />
+       <geometry>
+        <mesh
+          filename="file://$(find gazebo_tools)/meshes/robot/FrontRight_wheel.STL" />
+      </geometry> 
+      <geometry>
+        <cylinder radius="0.05" length="0.1"/>
+      </geometry>
+       <box size="0.5 0.3 0.1"/>       
+    </collision> -->
+    <visual>
+      <origin
+        xyz="-0.02 0 0"
+        rpy="0 1.5708 0" />
+      <geometry>
+        <cylinder radius="0.04" length="0.03"/>
+      </geometry>
     </visual>
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://gazebo_tools/meshes/robot/FrontRight_wheel.STL" />
+        <box size="0.04 0.04 0.04"/>      
       </geometry>
     </collision>
   </link>
@@ -142,7 +162,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/A_r1.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/A_r1.STL" />
       </geometry>
       <material
         name="">
@@ -156,7 +176,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/A_r1.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/A_r1.STL" />
       </geometry>
     </collision>
   </link>
@@ -195,7 +215,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/A_r2.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/A_r2.STL" />
       </geometry>
       <material
         name="">
@@ -209,7 +229,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/A_r2.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/A_r2.STL" />
       </geometry>
     </collision>
   </link>
@@ -248,7 +268,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/A_r3.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/A_r3.STL" />
       </geometry>
       <material
         name="">
@@ -262,7 +282,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/A_r3.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/A_r3.STL" />
       </geometry>
     </collision>
   </link>
@@ -301,7 +321,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/A_r4.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/A_r4.STL" />
       </geometry>
       <material
         name="">
@@ -315,7 +335,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/A_r4.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/A_r4.STL" />
       </geometry>
     </collision>
   </link>
@@ -354,7 +374,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/A_r5.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/A_r5.STL" />
       </geometry>
       <material
         name="">
@@ -368,7 +388,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/A_r5.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/A_r5.STL" />
       </geometry>
     </collision>
   </link>
@@ -407,7 +427,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/A_r6.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/A_r6.STL" />
       </geometry>
       <material
         name="">
@@ -421,7 +441,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/A_r6.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/A_r6.STL" />
       </geometry>
     </collision>
   </link>
@@ -460,7 +480,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/A_r7.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/A_r7.STL" />
       </geometry>
       <material
         name="">
@@ -474,7 +494,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/A_r7.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/A_r7.STL" />
       </geometry>
     </collision>
   </link>
@@ -513,7 +533,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/A_r8.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/A_r8.STL" />
       </geometry>
       <material
         name="">
@@ -527,7 +547,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/A_r8.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/A_r8.STL" />
       </geometry>
     </collision>
   </link>
@@ -560,27 +580,41 @@
         iyz="4.54058049699005E-12"
         izz="9.23881987154415E-06" />
     </inertial>
-    <visual>
+    <!-- <visual>
       <origin
         xyz="0 0 0"
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/BackRight_wheel.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/BackRight_wheel.STL" />
       </geometry>
       <material
         name="">
         <color
           rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
       </material>
-    </visual>
-    <collision>
+    </visual> -->
+    <!-- <collision>
       <origin
         xyz="0 0 0"
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/BackRight_wheel.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/BackRight_wheel.STL" />
+      </geometry>
+    </collision>  -->
+    <visual>
+      <origin
+        xyz="-0.02 0 0"
+        rpy="0 1.5708 0" />
+      <geometry>
+        <cylinder radius="0.04" length="0.03"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.04 0.04 0.04"/>      
       </geometry>
     </collision>
   </link>
@@ -619,7 +653,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/C_r1.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/C_r1.STL" />
       </geometry>
       <material
         name="">
@@ -633,7 +667,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/C_r1.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/C_r1.STL" />
       </geometry>
     </collision>
   </link>
@@ -672,7 +706,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/C_r2.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/C_r2.STL" />
       </geometry>
       <material
         name="">
@@ -686,7 +720,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/C_r2.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/C_r2.STL" />
       </geometry>
     </collision>
   </link>
@@ -725,7 +759,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/C_r3.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/C_r3.STL" />
       </geometry>
       <material
         name="">
@@ -739,7 +773,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/C_r3.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/C_r3.STL" />
       </geometry>
     </collision>
   </link>
@@ -778,7 +812,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/C_r4.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/C_r4.STL" />
       </geometry>
       <material
         name="">
@@ -792,7 +826,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/C_r4.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/C_r4.STL" />
       </geometry>
     </collision>
   </link>
@@ -831,7 +865,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/C_r5.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/C_r5.STL" />
       </geometry>
       <material
         name="">
@@ -845,7 +879,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/C_r5.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/C_r5.STL" />
       </geometry>
     </collision>
   </link>
@@ -884,7 +918,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/C_r6.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/C_r6.STL" />
       </geometry>
       <material
         name="">
@@ -898,7 +932,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/C_r6.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/C_r6.STL" />
       </geometry>
     </collision>
   </link>
@@ -937,7 +971,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/C_r7.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/C_r7.STL" />
       </geometry>
       <material
         name="">
@@ -951,7 +985,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/C_r7.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/C_r7.STL" />
       </geometry>
     </collision>
   </link>
@@ -990,7 +1024,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/C_r8.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/C_r8.STL" />
       </geometry>
       <material
         name="">
@@ -1004,7 +1038,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/C_r8.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/C_r8.STL" />
       </geometry>
     </collision>
   </link>
@@ -1037,13 +1071,13 @@
         iyz="4.54058043391187E-12"
         izz="9.23881987154381E-06" />
     </inertial>
-    <visual>
+    <!-- <visual>
       <origin
         xyz="0 0 0"
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/FrontLeft_wheel.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/FrontLeft_wheel.STL" />
       </geometry>
       <material
         name="">
@@ -1057,7 +1091,21 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/FrontLeft_wheel.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/FrontLeft_wheel.STL" />
+      </geometry>
+    </collision> -->
+    <visual>
+      <origin
+        xyz="0.02 0 0"
+        rpy="0 1.5708 0" />
+      <geometry>
+        <cylinder radius="0.04" length="0.03"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.04 0.04 0.04"/>      
       </geometry>
     </collision>
   </link>
@@ -1096,7 +1144,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/B_r1.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/B_r1.STL" />
       </geometry>
       <material
         name="">
@@ -1110,7 +1158,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/B_r1.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/B_r1.STL" />
       </geometry>
     </collision>
   </link>
@@ -1149,7 +1197,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/B_r2.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/B_r2.STL" />
       </geometry>
       <material
         name="">
@@ -1163,7 +1211,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/B_r2.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/B_r2.STL" />
       </geometry>
     </collision>
   </link>
@@ -1202,7 +1250,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/B_r3.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/B_r3.STL" />
       </geometry>
       <material
         name="">
@@ -1216,7 +1264,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/B_r3.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/B_r3.STL" />
       </geometry>
     </collision>
   </link>
@@ -1255,7 +1303,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/B_r4.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/B_r4.STL" />
       </geometry>
       <material
         name="">
@@ -1269,7 +1317,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/B_r4.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/B_r4.STL" />
       </geometry>
     </collision>
   </link>
@@ -1308,7 +1356,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/B_r5.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/B_r5.STL" />
       </geometry>
       <material
         name="">
@@ -1322,7 +1370,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/B_r5.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/B_r5.STL" />
       </geometry>
     </collision>
   </link>
@@ -1361,7 +1409,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/B_r6.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/B_r6.STL" />
       </geometry>
       <material
         name="">
@@ -1375,7 +1423,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/B_r6.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/B_r6.STL" />
       </geometry>
     </collision>
   </link>
@@ -1414,7 +1462,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/B_r7.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/B_r7.STL" />
       </geometry>
       <material
         name="">
@@ -1428,7 +1476,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/B_r7.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/B_r7.STL" />
       </geometry>
     </collision>
   </link>
@@ -1467,7 +1515,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/B_r8.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/B_r8.STL" />
       </geometry>
       <material
         name="">
@@ -1481,7 +1529,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/B_r8.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/B_r8.STL" />
       </geometry>
     </collision>
   </link>
@@ -1514,13 +1562,13 @@
         iyz="-5.21448564261971E-12"
         izz="9.23885155862502E-06" />
     </inertial>
-    <visual>
+    <!-- <visual>
       <origin
         xyz="0 0 0"
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/BackLeft_wheel.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/BackLeft_wheel.STL" />
       </geometry>
       <material
         name="">
@@ -1534,7 +1582,21 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/BackLeft_wheel.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/BackLeft_wheel.STL" />
+      </geometry>
+    </collision> -->
+    <visual>
+      <origin
+        xyz="0.02 0 0"
+        rpy="0 1.5708 0" />
+      <geometry>
+        <cylinder radius="0.04" length="0.03"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.04 0.04 0.04"/>      
       </geometry>
     </collision>
   </link>
@@ -1573,7 +1635,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/D_r1.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/D_r1.STL" />
       </geometry>
       <material
         name="">
@@ -1587,7 +1649,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/D_r1.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/D_r1.STL" />
       </geometry>
     </collision>
   </link>
@@ -1626,7 +1688,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/D_r2.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/D_r2.STL" />
       </geometry>
       <material
         name="">
@@ -1640,7 +1702,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/D_r2.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/D_r2.STL" />
       </geometry>
     </collision>
   </link>
@@ -1679,7 +1741,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/D_r3.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/D_r3.STL" />
       </geometry>
       <material
         name="">
@@ -1693,7 +1755,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/D_r3.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/D_r3.STL" />
       </geometry>
     </collision>
   </link>
@@ -1732,7 +1794,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/D_r4.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/D_r4.STL" />
       </geometry>
       <material
         name="">
@@ -1746,7 +1808,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/D_r4.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/D_r4.STL" />
       </geometry>
     </collision>
   </link>
@@ -1785,7 +1847,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/D_r5.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/D_r5.STL" />
       </geometry>
       <material
         name="">
@@ -1799,7 +1861,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/D_r5.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/D_r5.STL" />
       </geometry>
     </collision>
   </link>
@@ -1838,7 +1900,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/D_r6.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/D_r6.STL" />
       </geometry>
       <material
         name="">
@@ -1852,7 +1914,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/D_r6.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/D_r6.STL" />
       </geometry>
     </collision>
   </link>
@@ -1891,7 +1953,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/D_r7.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/D_r7.STL" />
       </geometry>
       <material
         name="">
@@ -1905,7 +1967,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/D_r7.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/D_r7.STL" />
       </geometry>
     </collision>
   </link>
@@ -1944,7 +2006,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/D_r8.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/D_r8.STL" />
       </geometry>
       <material
         name="">
@@ -1958,7 +2020,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/robot/D_r8.STL" />
+          filename="file://$(find gazebo_tools)/meshes/robot/D_r8.STL" />
       </geometry>
     </collision>
   </link>
@@ -1996,11 +2058,11 @@
     </inertial>
     <visual>
       <origin
-        xyz="0.0 0.0 0.0"
+        xyz="1.0 1.0 0.0"
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/stage/base_link.STL" />
+          filename="file://$(find gazebo_tools)/meshes/stage/base_link.STL" />
       </geometry>
       <material
         name="">
@@ -2010,11 +2072,12 @@
     </visual>
     <collision>
       <origin
-        xyz="0.0 0.0 0.0"
+        xyz="1.0 1.0 0.0"
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://gazebo_tools/meshes/stage/base_link.STL" />
+          filename="file://$(find gazebo_tools)/meshes/stage/base_link.STL" />
+        <!-- <box size="0.1 0.1 0.1"/>       -->
       </geometry>
     </collision>
   </link>

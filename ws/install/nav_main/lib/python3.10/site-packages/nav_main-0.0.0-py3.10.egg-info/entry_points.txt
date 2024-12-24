@@ -1,3 +1,0 @@
-[console_scripts]
-holonomic_controller = nav_main.holonomic_controller:main
-

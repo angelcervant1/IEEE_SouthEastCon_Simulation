@@ -59,7 +59,7 @@ class HolonomicController(Node):
         try:
             self.publisher.publish(command)
             self.gz_publisher.publish(msg)
-            self.get_logger().info(f"Published wheel velocities: {command.data}")
+            # self.get_logger().info(f"Published wheel velocities: {command.data}")
         except Exception as e:
             self.get_logger().error(f"Failed to publish command: {e}")
 
@@ -98,7 +98,7 @@ class HolonomicController(Node):
         t.transform.rotation.w = np.cos(self.theta / 2.0)
 
         pose = [t.transform.translation.x, t.transform.translation.y, self.theta]
-        self.get_logger().info(f"Robot Current Pose (x, y, theta): {pose}")
+        # self.get_logger().info(f"Robot Current Pose (x, y, theta): {pose}")
         self.tf_broadcaster.sendTransform(t)
 
 
@@ -109,9 +109,8 @@ def main(args=None):
         rclpy.spin(node)
     except KeyboardInterrupt:
         node.get_logger().info('Interrupted by user.')
-    finally:
         node.destroy_node()
-        rclpy.shutdown()
+        # rclpy.shutdown()
 
 
 if __name__ == '__main__':
