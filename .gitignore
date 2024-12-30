@@ -1,6 +1,6 @@
-build/
-install/
-log/
+ws/build/
+ws/install/
+ws/log/
 
 # Ignore Python cache files
 __pycache__/
