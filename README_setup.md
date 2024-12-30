@@ -135,8 +135,9 @@ After the reboot, clone the repository into your local workspace with
 git clone https://github.com/angelcervant1/IEEE_SouthEastCon_Simulation.git
 ```
 
-you will have a workspace as below
-
--
+Build the Docker Image with
+```
+docker build -t ros-humble-cuda .
+```
 
 
