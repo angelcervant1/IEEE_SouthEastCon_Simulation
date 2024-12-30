@@ -10,7 +10,7 @@ In another terminal run
 ```
 docker exec -it <container-name> bash
 ```
-if you press the TAB KEY <container-name> should be autocompleted
+if you press the **TAB_KEY** after the **-it** "container-name" should be autocompleted
 
 Once inside run
 ```
