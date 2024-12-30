@@ -140,4 +140,14 @@ Build the Docker Image with
 docker build -t ros-humble-cuda .
 ```
 
+Run the following command to enable GUI (Rviz, Gazebo) in the container
+```
+xhost +local:docker
+```
+
+If built succesfully then run the .sh file to enter the container
+```
+~/run.sh
+```
+
 
