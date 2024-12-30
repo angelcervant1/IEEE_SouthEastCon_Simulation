@@ -147,7 +147,22 @@ xhost +local:docker
 
 If built succesfully then run the .sh file to enter the container
 ```
+chmod +x run.sh
 ./run.sh
 ```
+
+## 3.- Build the ros workspace
+Go to ```IEEE_SouthEastCon_Simulation/ws``` and run
+```
+colcon build --symlink-install
+```
+
+After built succesfully source the workspace path
+
+```
+source install/setup.bash
+```
+
+
 
 
