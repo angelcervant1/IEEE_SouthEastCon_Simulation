@@ -147,7 +147,7 @@ xhost +local:docker
 
 If built succesfully then run the .sh file to enter the container
 ```
-~/run.sh
+./run.sh
 ```
 
 
