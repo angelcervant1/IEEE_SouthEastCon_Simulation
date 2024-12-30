@@ -130,9 +130,10 @@ sudo reboot
 
 ## 3.- Build the Docker Image and entering the container
 
-After the reboot, clone the repository into your local workspace with 
+After the reboot, clone the repository into your local workspace and ```cd``` inside it with 
 ```
 git clone https://github.com/angelcervant1/IEEE_SouthEastCon_Simulation.git
+cd ~/IEEE_SouthEastCon_Simulation
 ```
 
 Build the Docker Image with
