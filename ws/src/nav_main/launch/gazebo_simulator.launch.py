@@ -25,6 +25,14 @@ from launch.substitutions import PathJoinSubstitution
 #             output='screen',
 #         )
 
+
+teleop = Node(
+    package="teleop_twist_keyboard",
+    executable="teleop_twist_keyboard",
+    name="teleop_twist_keyboard",
+    output="both"
+)
+
 def generate_launch_description():    
 
     gazebo_launch_file = PathJoinSubstitution([
@@ -44,5 +52,6 @@ def generate_launch_description():
             executable='holonomic_controller',
             name='base_controller',
             output='screen',
-        ),        
+        ),    
+#        teleop   
     ])

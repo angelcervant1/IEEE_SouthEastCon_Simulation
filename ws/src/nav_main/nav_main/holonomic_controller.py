@@ -36,13 +36,15 @@ class HolonomicController(Node):
         self.timer = self.create_timer(0.1, self.update_pose_and_tf)  # 10 hz rate
 
     def cmd_vel_callback(self, msg):
-        self.linear_x = msg.linear.x
-        self.linear_y = msg.linear.y
+        
+        # Velocities are remapped because of tf not being passed correctly by robot_state_publisher
+        self.linear_x = msg.linear.y
+        self.linear_y = -msg.linear.x
         self.angular_z = msg.angular.z
 
         self.last_cmd_time = self.get_clock().now()
 
-        # wheel kinematics matriox
+        # wheel kinematics matrix
         wheel_matrix = np.array([
             [1, -1, -(self.base_length + self.base_width)],  # Front Left
             [1,  1,  (self.base_length + self.base_width)],  # Front Right
