@@ -5,7 +5,8 @@
 
 1.- Ubuntu >= 20.0
 
-2.- Docker >= 27.0.0
+2.- Docker >= 27.0.0 
+add the ln to the docer page
 
 ## 1.-Verify NVIDIA Drivers.
 
