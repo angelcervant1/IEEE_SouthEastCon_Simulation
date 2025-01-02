@@ -5,7 +5,7 @@
 
 1.- Ubuntu >= 20.0
 
-2.- Docker >= 27.0.0 [Installing Docker](https://docs.docker.com/engine/install/ubuntu/)
+2.- [Docker](https://docs.docker.com/engine/install/ubuntu/) >= 27.0.0 
 
 ## 1.-Verify NVIDIA Drivers.
 
