@@ -17,4 +17,4 @@ Once inside run
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```
 
-You should see the robot moving on Rviz when sending commands over the /cmd_vel topic
+You should see the robot moving on Rviz when sending commands over the ```/cmd_vel``` topic
