@@ -151,13 +151,13 @@ xhost +local:docker
 
 If built succesfully then run the .sh file to enter the container
 
-## For NVIDIA Users
+### For NVIDIA Users
 ```
 chmod +x run.sh
 ./run.sh
 ```
 
-## For non NVIDIA Users
+### For non NVIDIA Users
 
 ```
 chmod +x run_no_gpu.sh
