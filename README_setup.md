@@ -166,7 +166,12 @@ chmod +x run_no_gpu.sh
 
 ## 3.- Build and source the ros workspace
 
-Go to ```IEEE_SouthEastCon_Simulation/ws``` and run
+Go to ```IEEE_SouthEastCon_Simulation/ws``` with
+```
+cd /IEEE_SouthEastCon_Simulation/ws
+```
+
+and run
 ```
 colcon build --symlink-install
 source install/setup.bash
