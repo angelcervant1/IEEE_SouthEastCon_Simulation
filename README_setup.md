@@ -1,8 +1,8 @@
-# For non NVIDIA users
-Skip to 
 
 # Setting up NVIDIA and Docker Environment 
 
+## For non NVIDIA users
+Skip to step **#3**
 
 # Prior Requirements.
 
