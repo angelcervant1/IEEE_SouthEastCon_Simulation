@@ -1,3 +1,6 @@
+# For non NVIDIA users
+Skip to 
+
 # Setting up NVIDIA and Docker Environment 
 
 
